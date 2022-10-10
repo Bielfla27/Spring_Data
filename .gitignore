@@ -31,3 +31,26 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# file to ignore if you want to use git to track your eclipse workspace metadata directory. 
+
+.mylyn/.taskListIndex/
+*.log
+.plugins/org.eclipse.m2e.core/nexus/
+*.swp
+.mylyn/*
+.plugins/org.eclipse.core.resources/.root/*.tree
+.markers
+.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.prefs
+.plugins/org.eclipse.ui.workbench/workingsets.xml
+.plugins/org.eclipse.team.cvs.core
+
+# lembre de colocar o nome da pasta sem o ponto na frente
+# Para ignorar todos arquivos e sub-pastas localizados na pasta metadata/plugins/
+metadata/plugins/nome-do-plugin
+
+# Para ignorar todos os arquivos e sub-pastas da pasta metadata/
+metadata/
+.metadata/
+/metadata/
+**/metadata/*
