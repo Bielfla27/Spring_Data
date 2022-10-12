@@ -95,9 +95,4 @@ public class CrudCargoService {
 		System.out.println();
 	}
 	
-	
-	
-	
-	
-	
 }
