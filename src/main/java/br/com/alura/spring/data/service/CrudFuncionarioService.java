@@ -19,7 +19,6 @@ import br.com.alura.spring.data.repository.UnidadeTrabalhoRepository;
 @Service
 public class CrudFuncionarioService {
 
-	private Boolean system = true;
 	private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	
 	private final CargoRepository cargoRepository;
@@ -35,13 +34,17 @@ public class CrudFuncionarioService {
 	}
 	
 	public void inicial(Scanner scanner) {
+		Boolean system = true; 
+
 		while(system) {
+			System.out.println();
 			System.out.println("Qual acao de cargo deseja executar");
 			System.out.println("0 - Sair");
 			System.out.println("1 - Salvar");
 			System.out.println("2 - Atualizar");
 			System.out.println("3 - Visualizar");
 			System.out.println("4 - Deletar");
+			System.out.println();
 			
 			int action = scanner.nextInt();
 			

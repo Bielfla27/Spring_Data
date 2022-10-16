@@ -10,7 +10,6 @@ import br.com.alura.spring.data.repository.UnidadeTrabalhoRepository;
 @Service
 public class CrudUnidadeTrabalhoService {
 
-	private Boolean system = true;
 	private final UnidadeTrabalhoRepository unidadeTrabalhoRepository;
 	
 	public CrudUnidadeTrabalhoService(UnidadeTrabalhoRepository unidadeTrabalhoRepository) {
@@ -18,13 +17,16 @@ public class CrudUnidadeTrabalhoService {
 	}
 	
 	public void inicial(Scanner scanner) {
+		Boolean system = true; 
 		while(system) {
+			System.out.println();
 			System.out.println("Qual acao de cargo deseja executar");
 			System.out.println("0 - Sair");
-			System.out.println("1 - Salvar");
-			System.out.println("2 - Atualizar");
-			System.out.println("3 - Visualizar");
-			System.out.println("4 - Deletar");
+			System.out.println("1 - Salvar Unidade");
+			System.out.println("2 - Atualizar Unidade");
+			System.out.println("3 - Visualizar Unidade");
+			System.out.println("4 - Deletar Unidade");
+			System.out.println();
 			
 			int action = scanner.nextInt();
 			
@@ -45,9 +47,7 @@ public class CrudUnidadeTrabalhoService {
 				system = false;
 				break;
 			}
-			
-		}
-		
+		}	
 	}
 	
 	private void salvar(Scanner scanner) {
