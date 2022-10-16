@@ -31,7 +31,7 @@ public class RelatoriosService {
 			System.out.println("0 -> SAIR");
 			System.out.println("1 -> Buscar funcionario pelo nome");
 			System.out.println("2 -> Buscar funcionario pelo nome, data contratacao e salario maio");
-			System.out.println("2 -> Buscar funcionario data contratacao");
+			System.out.println("3 -> Buscar funcionario data contratacao");
 			System.out.println();
 			int action = opção.nextInt();
 			switch (action) {
