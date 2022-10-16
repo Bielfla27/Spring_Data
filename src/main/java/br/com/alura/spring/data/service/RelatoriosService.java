@@ -31,6 +31,7 @@ public class RelatoriosService {
 			System.out.println("0 -> SAIR");
 			System.out.println("1 -> Buscar funcionario pelo nome");
 			System.out.println("2 -> Buscar funcionario pelo nome, data contratacao e salario maio");
+			System.out.println("2 -> Buscar funcionario data contratacao");
 			System.out.println();
 			int action = opção.nextInt();
 			switch (action) {
@@ -43,6 +44,9 @@ public class RelatoriosService {
 			case 2:
 				buscarFuncionarioNomeSalarioMaiorData(scanner);
 				break;
+			case 3:
+				buscarFuncionarioDataContratacao(scanner);
+				break;
 			default:
 				System.out.println();
 				System.out.println("Valor invalido, tente algumas das opções sugeridas!");
@@ -54,8 +58,8 @@ public class RelatoriosService {
 	private void buscarPorNome(Scanner scanner) {
 		System.out.println("Qual nome deseja pesquisar");
 		String nome = scanner.next();
-		List<Funcionario> listFuncionario = funcionarioRepository.findByNome(nome);
-		listFuncionario.forEach(System.out::println);
+		List<Funcionario> listFuncionarios = funcionarioRepository.findByNome(nome);
+		listFuncionarios.forEach(System.out::println);
 	}
 	
 	private void buscarFuncionarioNomeSalarioMaiorData(Scanner scanner) {
@@ -66,7 +70,15 @@ public class RelatoriosService {
 		LocalDate localDate = LocalDate.parse(data, formatter);
 		System.out.println("A partir de qual salario devo pesquisar");
 		Double salario = scanner.nextDouble();
-		List<Funcionario> listFuncionario = funcionarioRepository.findNomeSalarioMaiorDataContratacap(nome, salario, localDate);
-		listFuncionario.forEach(System.out::println);
+		List<Funcionario> listFuncionarios = funcionarioRepository.findNomeSalarioMaiorDataContratacap(nome, salario, localDate);
+		listFuncionarios.forEach(System.out::println);
+	}
+	
+	private void buscarFuncionarioDataContratacao(Scanner scanner) {
+		System.out.println("Qual data contratacao deseja pesquisar");
+		String data = scanner.next();
+		LocalDate localDate = LocalDate.parse(data, formatter);
+		List<Funcionario> listFuncionarios = funcionarioRepository.findDataContratacaoMaior(localDate);
+		listFuncionarios.forEach(System.out::println);
 	}
 }
