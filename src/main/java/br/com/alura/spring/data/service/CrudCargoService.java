@@ -88,7 +88,7 @@ public class CrudCargoService {
 		System.out.println("Qual pagina você deseja visualizar");
 		Integer page = scanner.nextInt();
 		
-		Pageable pageable = PageRequest.of(page, 5, Sort.unsorted());
+		Pageable pageable = PageRequest.of(page, 5, Sort.by(Sort.Direction.ASC, "descricao"));
 		Page<Cargo> cargos = cargoRepository.findAll(pageable);
 		
 		System.out.println(cargos);
