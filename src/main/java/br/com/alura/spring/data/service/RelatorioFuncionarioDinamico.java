@@ -25,19 +25,21 @@ public class RelatorioFuncionarioDinamico {
 	}
 	
 	public void inicial(Scanner scanner) {
+		System.out.println();
 		System.out.println("Digite o nome");
 		String nome = scanner.next();
 		
-		if(nome.equalsIgnoreCase("NULL")) {
+		if(nome.equalsIgnoreCase("1")) {
 			nome = null;
 		}
 		
 		System.out.println("Digite o cpf");
 		String cpf = scanner.next();
 		
-		if(cpf.equalsIgnoreCase("NULL")) {
+		if(cpf.equalsIgnoreCase("1")) {
 			cpf = null;
 		}
+	
 		
 		System.out.println("Digite o salario");
 		Double salario = scanner.nextDouble();
@@ -50,17 +52,18 @@ public class RelatorioFuncionarioDinamico {
 		String data = scanner.next();
 		LocalDate dataContratacao;
 		
-		if(data.equalsIgnoreCase("NULL")) {
+		if(data.equalsIgnoreCase("1")) {
 			dataContratacao = null;
 		}else {
 			dataContratacao = LocalDate.parse(data, formatter);
 		}
-		
+		System.out.println();
 		List<Funcionario> funcionarios = funcionarioRepository
 				.findAll(Specification.where(SpecificationFuncionario.nome(nome)
 											 .or(SpecificationFuncionario.cpf(cpf))
 											 .or(SpecificationFuncionario.salario(salario))
-											 .or(SpecificationFuncionario.dataCotratacao(dataContratacao))));
+											 .or(SpecificationFuncionario.dataContratacao(dataContratacao))));
+		funcionarios.forEach(System.out::println);
  	}
 	
 }

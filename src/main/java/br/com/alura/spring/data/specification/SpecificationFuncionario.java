@@ -26,9 +26,9 @@ public class SpecificationFuncionario {
 				CriteriaBuilder.greaterThan(root.get("salario"), salario);
 	}
 	
-	public static Specification<Funcionario> dataCotratacao(LocalDate dataCotratacao){
+	public static Specification<Funcionario> dataContratacao(LocalDate dataContratacao){
 		return (root, CriteriaQuery, CriteriaBuilder) -> 
-				CriteriaBuilder.greaterThan(root.get("dataCotratacao"), dataCotratacao);
+				CriteriaBuilder.greaterThan(root.get("dataContratacao"), dataContratacao);
 	}
 
 }
